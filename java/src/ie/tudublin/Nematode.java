@@ -1,8 +1,6 @@
 package ie.tudublin;
 
-import javax.swing.text.TableView.TableRow;
-
-import processing.core.PApplet;
+import processing.data.TableRow;
 
 
 public class Nematode 
@@ -10,21 +8,26 @@ public class Nematode
     
     private String displayName;
     private int length;
-    private int limbs;
+    private boolean limbs;
     private String gender;
-    private int eyes;
+    private boolean eyes;
 
+    @Override
+    public String toString() {
 
-    private static processing.data.TableRow tr;
+        return "Nematode [displayName=" + displayName + ", length=" + length + ", limbs=" + limbs
+        + ", gender=" + gender + ", eyes=" + eyes + "]";
 
-    public Nematode(processing.data.TableRow rowTableRow){
+    }
+
+    public Nematode(TableRow row){
 
         this(
-            tr.getString("name"),
-            tr.getInt("length"),
-            tr.getInt("limbs"),
-            tr.getString("gender"),
-            tr.getInt("eyes") 
+            row.getString("name"),
+            row.getInt("length"),
+            row.getInt("limbs") == 1,
+            row.getString("gender"),
+            row.getInt("eyes") == 1
         );
 
         
@@ -33,7 +36,7 @@ public class Nematode
 
 
 
-    public Nematode(String displayName, int length, int limbs, String gender, int eyes ) 
+    public Nematode(String displayName, int length, boolean limbs, String gender, boolean eyes ) 
     {
         this.displayName = displayName;
         this.length = length;
@@ -50,7 +53,7 @@ public class Nematode
         return length;
     }
 
-    public int getLimbs(){
+    public boolean getLimbs(){
         return limbs;
     }
 
@@ -58,14 +61,8 @@ public class Nematode
         return gender;
     }
 
-    public int getEyes(){
+    public boolean getEyes(){
         return eyes;
-    }
-
-    public String toString() {
-
-        return null;
-
     }
 
     public void add(Nematode nematode) {

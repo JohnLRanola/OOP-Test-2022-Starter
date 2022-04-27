@@ -54,8 +54,28 @@ public class NematodeVisualiser extends PApplet
 		}
 	}
 
+	private float border = 40;
+	
+	void displayNematodes()
+	{
+		float y = border + border;
+
+		textSize(14);
+		textAlign(CENTER, CENTER);
+
+		stroke(128);
+
+		for(int i = 0; i < nematode.size(); i++)
+		{
+			text(nematode.get(i).getDisplayName(), border, y);
+		}
+
+		noStroke();
+	}
 
 	public void draw()
 	{	
+		background(0);
+
 	}
 }
