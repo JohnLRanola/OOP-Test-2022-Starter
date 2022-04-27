@@ -44,26 +44,36 @@ public class Nematode
         this.eyes = eyes;
     }
 
-    public String getDisplayName(){
+    public String getName() {
         return displayName;
     }
-
-    public int getLength(){
+    public void setName(String name) {
+        this.displayName = name;
+    }
+    public int getLength() {
         return length;
     }
-
-    public boolean getLimbs(){
+    public void setLength(int length) {
+        this.length = length;
+    }
+    public boolean isLimbs() {
         return limbs;
     }
-
-    public String getGender(){
+    public void setLimbs(boolean limbs) {
+        this.limbs = limbs;
+    }
+    public String getGender() {
         return gender;
     }
-
-    public boolean getEyes(){
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+    public boolean isEyes() {
         return eyes;
     }
-
+    public void setEyes(boolean eyes) {
+        this.eyes = eyes;
+    }
     public void add(Nematode nematode) {
     }
 
@@ -74,11 +84,6 @@ public class Nematode
 
         
         pa.stroke(255, 255, 0);
-        pa.line(x, y -5, x, y + 5);
-        pa.line(x-5, y, x + 5, y);
-        pa.stroke(255, 0, 0);
-        pa.noFill();
-        pa.circle(x, y, length);
         pa.fill(255);
         pa.textSize(16);
         pa.textAlign(PApplet.LEFT, PApplet.CENTER);
