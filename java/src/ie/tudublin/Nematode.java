@@ -1,6 +1,7 @@
 package ie.tudublin;
 
 import processing.data.TableRow;
+import processing.core.PApplet;
 
 
 public class Nematode 
@@ -34,8 +35,6 @@ public class Nematode
     
     }
 
-
-
     public Nematode(String displayName, int length, boolean limbs, String gender, boolean eyes ) 
     {
         this.displayName = displayName;
@@ -67,5 +66,24 @@ public class Nematode
 
     public void add(Nematode nematode) {
     }
+
+    public void render(NematodeVisualiser pa)
+    {
+        float x = PApplet.map(length, -5, 5, pa.border, pa.width - pa.border);
+        float y = PApplet.map(length, -5, 5, pa.border, pa.height - pa.border);
+
+        
+        pa.stroke(255, 255, 0);
+        pa.line(x, y -5, x, y + 5);
+        pa.line(x-5, y, x + 5, y);
+        pa.stroke(255, 0, 0);
+        pa.noFill();
+        pa.circle(x, y, length);
+        pa.fill(255);
+        pa.textSize(16);
+        pa.textAlign(PApplet.LEFT, PApplet.CENTER);
+        pa.text(displayName, x + 20, y);
+    }
+
 
 }
